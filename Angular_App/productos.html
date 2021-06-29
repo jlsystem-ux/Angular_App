@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        Nombre: <br>
+      <input type="text" ng-model="lista.nombre">
+    </p>
+    <p>
+        Precio: <br>
+        <input type="text" ng-model="lista.precio">
+    </p>
+
+    <input type="button" value= "Añadir" ng-click="lista.addProducto()">
+
+    
+    <table cellspacing="5">
+        <thead>
+            <tr>
+                 <!---- <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Total</th>-->
+                <td>Producto</td>
+                <td>Precio</td>
+                <td>Cantidad</td>
+                <td>Total</td>
+            </tr>
+        </thead>
+         <tr ng-repeat="producto in lista.productos">
+            <td>{{producto.nombre}}</td>
+            <td>${{producto.precio}}</td>
+            <td>{{producto.cantidad}}</td>
+            <td>${{producto.total}}</td>
+        </tr>  
+        <tr class="total">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>${{lista.getTotalCarrito()}}</td>
+
+        </tr>
+    </table>
+</body>
+</html>
